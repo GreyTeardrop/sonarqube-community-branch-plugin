@@ -45,4 +45,11 @@ public class CreateCheckRun {
         return checkRun;
     }
 
+    @Override
+    public String toString() {
+        return "CreateCheckRun{" +
+               "clientMutationId='" + clientMutationId + '\'' +
+               ", checkRun=" + checkRun +
+               '}';
+    }
 }

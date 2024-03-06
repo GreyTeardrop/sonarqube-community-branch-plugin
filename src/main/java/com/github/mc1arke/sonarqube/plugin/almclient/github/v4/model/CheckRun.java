@@ -34,4 +34,10 @@ public class CheckRun {
         return id;
     }
 
+    @Override
+    public String toString() {
+        return "CheckRun{" +
+               "id='" + id + '\'' +
+               '}';
+    }
 }
