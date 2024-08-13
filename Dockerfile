@@ -1,10 +1,10 @@
 ARG SONARQUBE_VERSION
 
-FROM gradle:8.9-jdk17-jammy as builder
+FROM bellsoft/liberica-openjdk-alpine-musl:17.0.12 AS builder
 
 COPY . /home/build/project
 WORKDIR /home/build/project
-RUN gradle build -x test
+RUN ./gradlew build -x test
 
 FROM sonarqube:${SONARQUBE_VERSION}
 COPY --from=builder --chown=sonarqube:sonarqube /home/build/project/build/libs/sonarqube-community-branch-plugin-*.jar /opt/sonarqube/extensions/plugins/
